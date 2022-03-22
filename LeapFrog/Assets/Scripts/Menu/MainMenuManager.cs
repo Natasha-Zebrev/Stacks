@@ -10,7 +10,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        play.onClick.AddListener(() => LoadingScreen.LoadScene("LevelSelect"));
+        play.onClick.AddListener(() => LoadingScreen.LoadScene("Level 1"));
         credits.onClick.AddListener(() => LoadingScreen.LoadScene("Credits"));
     }
 
