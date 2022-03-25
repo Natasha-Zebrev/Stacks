@@ -56,4 +56,12 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = true;
     }
+
+    public void addAlly(GameObject enemy)
+    {
+        GameObject newAlly = Instantiate(enemy, playerTransform, false);
+        //enemy.transform.SetParent(playerTransform, false);
+        playerTransform.Translate(new Vector3(0, 1, 0));
+        newAlly.transform.Translate(new Vector3(0, -1, 0));
+    }
 }
