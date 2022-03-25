@@ -196,9 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213455e04e645de4997bde477d9c95b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  benzo: {fileID: 2853716270946994610}
   mainRigidBody: {fileID: 4560532616422716332}
   playerTransform: {fileID: 7348870654100838070}
-  mainSpriteRenderer: {fileID: 3990491579695045749}
   moveSpeed: 890
   jumpHeight: 400
   anim: {fileID: 8886480027581160656}

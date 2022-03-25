@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameObject benzo;
     [SerializeField] private Rigidbody2D mainRigidBody;
     [SerializeField] private Transform playerTransform;
-    [SerializeField] private SpriteRenderer mainSpriteRenderer;
+    private SpriteRenderer mainSpriteRenderer;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
     bool isGrounded = true;
     [SerializeField] private Animator anim;
+    private List<GameObject> stack = new List<GameObject>();
 
     private void Start()
     {
         anim.enabled = false;
-    }
+        stack.Add(benzo);
+        mainSpriteRenderer = benzo.GetComponent<SpriteRenderer>();
+}
     // Update is called once per frame
     void Update()
     {
@@ -60,8 +64,9 @@ public class PlayerController : MonoBehaviour
     public void addAlly(GameObject enemy)
     {
         GameObject newAlly = Instantiate(enemy, playerTransform, false);
-        //enemy.transform.SetParent(playerTransform, false);
-        playerTransform.Translate(new Vector3(0, 1, 0));
-        newAlly.transform.Translate(new Vector3(0, -1, 0));
+        float allyHeight = newAlly.GetComponent<BoxCollider2D>().bounds.size.y;
+        //playerTransform.Translate(new Vector3(0, allyHeight, 0));
+        newAlly.transform.Translate(new Vector3(0, allyHeight * stack.Count, 0));
+        stack.Add(newAlly);
     }
 }
