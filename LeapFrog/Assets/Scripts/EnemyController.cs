@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour
         
     }
 
+    private float lastHitTime;
+    //Returns true if the enemy was jumped on and killed by the player, false otherwise.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collider = collision.gameObject;
@@ -35,6 +37,16 @@ public class EnemyController : MonoBehaviour
                 player.addAlly(allyPrefab);
                 Destroy(this.gameObject);
             }
-         }
+            else if (collision.gameObject.CompareTag("Player") && (Time.time - lastHitTime > 1f))
+            {
+                lastHitTime = Time.time;
+                Destroy(this.gameObject);
+                if (PlayerController.instance.Health > 0)
+                {
+                    PlayerController.instance.Health--;
+                    Debug.Log(PlayerController.instance.Health);
+                }
+            }
+        }
     }
 }

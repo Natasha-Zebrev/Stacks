@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private int health;
-    private int Health
+    public int Health
     {
         get
         {
@@ -71,13 +71,14 @@ public class PlayerController : MonoBehaviour
         set
         {
             health = value;
-            gameUI.showHealthFraction((float)health / (float)maxHealth);
+            gameUI.showHealthFraction((float)Health / (float)maxHealth);
             if(health <= 0)
             {
                 LoadingScreen.LoadScene("MainMenu");            }
         }
     }
 
+    private float lastHitTime;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Floor"))
