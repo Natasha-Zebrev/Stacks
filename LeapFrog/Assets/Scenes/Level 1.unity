@@ -454,8 +454,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 845766990}
     - target: {fileID: 802894952244288195, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
+      propertyPath: moveSpeed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 802894952244288195, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
       propertyPath: jumpHeight
-      value: 600
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 1006947114725933260, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
       propertyPath: mainTransform
@@ -471,6 +475,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4560532616422716332, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
       propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560532616422716332, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
+      propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5492732021440602244, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}

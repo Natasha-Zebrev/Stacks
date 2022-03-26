@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [SerializeField] private GameObject benzo;
     [SerializeField] private Rigidbody2D mainRigidBody;
     [SerializeField] private Transform playerTransform;
@@ -13,6 +15,8 @@ public class PlayerController : MonoBehaviour
     bool isGrounded = true;
     [SerializeField] private Animator anim;
     private List<GameObject> stack = new List<GameObject>();
+    [SerializeField] private GameUI gameUI;
+    [SerializeField] private int maxHealth;
 
     private void Start()
     {
@@ -49,6 +53,29 @@ public class PlayerController : MonoBehaviour
             anim.enabled = false;
         }
 
+    }
+
+    void Awake()
+    {
+        instance = this;
+        Health = maxHealth;
+    }
+
+    private int health;
+    private int Health
+    {
+        get
+        {
+            return health;
+        }
+        set
+        {
+            health = value;
+            gameUI.showHealthFraction((float)health / (float)maxHealth);
+            if(health <= 0)
+            {
+                LoadingScreen.LoadScene("MainMenu");            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
