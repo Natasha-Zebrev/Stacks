@@ -13,7 +13,7 @@ TagManager:
   - Ignore Raycast
   - Water
   - UI
-  - Graphics
+  - 
   - 
   - 
   - 
@@ -40,12 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Foreground
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
     uniqueID: 1686704177
     locked: 0
   - name: Midground
     uniqueID: 2345354443
     locked: 0
-  - name: Background
+  - name: Foreground
     uniqueID: 4069942893
     locked: 0
