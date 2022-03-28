@@ -18,8 +18,8 @@ public class GameUI : MonoBehaviour
 
     string FormatSeconds(float elapsed)
     {
-        int seconds = (int)elapsed;
-        int minutes = seconds / 60;
+        int seconds = (int)elapsed % 60;
+        int minutes = (int)elapsed / 60;
         return String.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
