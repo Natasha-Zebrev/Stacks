@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         anim.enabled = false;
         stack.Add(benzo);
         mainSpriteRenderer = benzo.GetComponent<SpriteRenderer>();
-        topOfStack = new Vector3(0, benzo.GetComponent<BoxCollider2D>().bounds.size.y / 2, 0);
+        topOfStack = new Vector3(0, benzo.GetComponent<BoxCollider2D>().bounds.size.y * 0.5f, 0);
     }
 
     // Update is called once per frame
@@ -102,13 +102,11 @@ public class PlayerController : MonoBehaviour
     {
         GameObject newAlly = Instantiate(enemy, playerTransform, false);
         float allyHeight = newAlly.GetComponent<BoxCollider2D>().bounds.size.y;
-        Debug.Log("Initial ally pos: " + newAlly.transform.position.y);
         //Code that places the enemy/newAlly under the player instead of on top
         //playerTransform.Translate(new Vector3(0, allyHeight, 0));
-        newAlly.transform.Translate(topOfStack);
-        Debug.Log("Before we add the new ally height: " + topOfStack.y);
-        topOfStack += new Vector3(0 , allyHeight, 0);
-        Debug.Log("After we add the new ally height: " + topOfStack.y + "Ally height: " + allyHeight);
+        topOfStack += new Vector3(0, allyHeight, 0);
+        newAlly.transform.localPosition = topOfStack;
+        topOfStack += new Vector3(0 , allyHeight * 0.5f, 0);
         stack.Add(newAlly);
     }
 }

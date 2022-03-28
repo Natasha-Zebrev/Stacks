@@ -51,9 +51,8 @@ public class EnemyController : MonoBehaviour
                     }
                     else if(stack.Count == 2)
                     {
-                        
-                        Destroy(stack[stack.Count - 1]);
-                        stack.RemoveAt(stack.Count - 1);
+
+                        removeAlly(stack, stack.Count-1);
                     }
                     else if(stack.Count > 2 && stack.Count <= 14)
                     {
@@ -61,11 +60,7 @@ public class EnemyController : MonoBehaviour
                         int stackCount = stack.Count;
                         for(int i = stackCount - 1; i > stackCount - 1 - numToRemove; i--)
                         {
-                            GameObject removedAlly = stack[i];
-                            Vector3 removeHeight = new Vector3(0, removedAlly.GetComponent<BoxCollider2D>().bounds.size.y, 0);
-                            Destroy(stack[i]);
-                            stack.RemoveAt(i);
-                            PlayerController.instance.topOfStack -= removeHeight;
+                            removeAlly(stack, i);
                         }
                     }
                     else if(stack.Count > 14)
@@ -73,13 +68,21 @@ public class EnemyController : MonoBehaviour
                         int removeMax = 5;
                         for (int i = stack.Count - 1; i > stack.Count - 1 - removeMax; i--)
                         {
-                            Destroy(stack[i]);
-                            stack.RemoveAt(i);
+                            removeAlly(stack, i);
                         }
                     }
                     
                 }
             }
         }
+    }
+
+    private static void removeAlly(List<GameObject> stack, int i)
+    {
+        GameObject removedAlly = stack[i];
+        Vector3 removeHeight = new Vector3(0, removedAlly.GetComponent<BoxCollider2D>().bounds.size.y * 1.5f, 0);
+        Destroy(stack[i]);
+        stack.RemoveAt(i);
+        PlayerController.instance.topOfStack -= removeHeight;
     }
 }
