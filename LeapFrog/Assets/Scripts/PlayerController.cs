@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight;
     bool isGrounded = true;
     [SerializeField] private Animator anim;
-    private List<GameObject> stack = new List<GameObject>();
+    public List<GameObject> stack = new List<GameObject>();
     [SerializeField] private GameUI gameUI;
     [SerializeField] private int maxHealth;
-    private Vector3 topOfStack;
+    public Vector3 topOfStack;
 
     private void Start()
     {
