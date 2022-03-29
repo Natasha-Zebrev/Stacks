@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
             anim.enabled = false;
         }
 
+        //Flip allies
+        flipAllies();
     }
 
     void Awake()
@@ -108,5 +110,25 @@ public class PlayerController : MonoBehaviour
         newAlly.transform.localPosition = topOfStack;
         topOfStack += new Vector3(0 , allyHeight * 0.5f, 0);
         stack.Add(newAlly);
+    }
+
+    //Flips an ally/allies to whichever direction the player is facing
+    public void flipAllies() {
+        bool flipped = mainSpriteRenderer.flipX;
+        if (flipped == true && stack.Count > 1)
+        {
+            for(int i = 1; i < stack.Count; i++)
+            {
+                stack[i].GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+
+        if (flipped == false && stack.Count > 1)
+        {
+            for(int i = 1; i < stack.Count; i++)
+            {
+                stack[i].GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
     }
 }
