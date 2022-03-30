@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
         newAlly.transform.localPosition = topOfStack;
         topOfStack += new Vector3(0 , allyHeight * 0.5f, 0);
         stack.Add(newAlly);
+        GameUI.instance.CheckWin(stack.Count);
     }
 
     //Flips an ally/allies to whichever direction the player is facing
