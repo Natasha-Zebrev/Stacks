@@ -52,7 +52,7 @@ public class GameUI : MonoBehaviour
     public void ShowStackSize()
     {
         int stackCount = PlayerController.instance.stack.Count;
-        stackSize.text = "Stack Size: " + PlayerController.instance.stack.Count + "/" + targetSize;
+        stackSize.text = "Stack Size: " + stackCount + "/" + targetSize;
     }
 
     //Checks to see if the player has won the level; changes to the level select if true

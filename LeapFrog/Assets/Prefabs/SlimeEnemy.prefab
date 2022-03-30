@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4912466679921809263}
   - component: {fileID: 2578535854849151883}
   - component: {fileID: 6943277465593440932}
+  - component: {fileID: -4505562997222175622}
   m_Layer: 0
   m_Name: SlimeEnemy
   m_TagString: Enemy
@@ -48,7 +49,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -167,3 +168,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4505562997222175622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016538568500580803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c5bf26096434942883addc78e017c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainTransform: {fileID: 8631747708638599538}
+  moveSpeed: 1
