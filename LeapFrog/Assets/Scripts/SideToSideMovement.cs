@@ -5,6 +5,7 @@ using UnityEngine;
 public class SideToSideMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D mainRigidbody;
+    [SerializeField] private SpriteRenderer mainRenderer;
     [SerializeField] private int moveSpeed;
     [SerializeField] private int sideToSideDistance;
     private float startingX;
@@ -48,20 +49,7 @@ public class SideToSideMovement : MonoBehaviour
 
     private void faceCorrectDirection(bool directionMovingLeft)
     {
-        if (directionMovingLeft)
-        {
-            correctDirection(0);
-        }
-        else if (!directionMovingLeft)
-        {
-            correctDirection(180);
-        }
+        mainRenderer.flipX = !directionMovingLeft;
     }
 
-    private void correctDirection(int rotateX)
-    {
-       // Vector3 currentRotation = mainRigidbody.rotation.eulerAngles;
-       // currentRotation.y = rotateX;
-        //mainRigidbody.eulerAngles = currentRotation;
-    }
 }
