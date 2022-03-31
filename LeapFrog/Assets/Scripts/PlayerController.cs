@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check if the player is touching the floor
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
         {
             if ((playerTransform.position.y > collision.gameObject.transform.position.y) &&
                Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))

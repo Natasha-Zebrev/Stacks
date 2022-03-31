@@ -47,6 +47,14 @@ public class SideToSideMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Floor"))
+        {
+            movingLeft = !movingLeft;
+        }
+    }
+
     private void faceCorrectDirection(bool directionMovingLeft)
     {
         mainRenderer.flipX = !directionMovingLeft;
