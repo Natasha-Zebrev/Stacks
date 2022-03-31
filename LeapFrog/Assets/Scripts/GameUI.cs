@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private TMP_Text gameTime;
     [SerializeField] private TMP_Text stackSize;
+    [SerializeField] private int allyCount;
     [SerializeField] private int targetSize;
     private float gameTimeFloat = 0;
 
@@ -52,13 +53,14 @@ public class GameUI : MonoBehaviour
     public void ShowStackSize()
     {
         int stackCount = PlayerController.instance.stack.Count;
-        stackSize.text = "Stack Size: " + stackCount + "/" + targetSize;
+        allyCount = stackCount - 1;
+        stackSize.text = "Allies: " + allyCount + "/" + targetSize;
     }
 
     //Checks to see if the player has won the level; changes to the level select if true
-    public void CheckWin(int stackCount)
+    public void CheckWin(int allyCount)
     {
-        if (stackCount / targetSize >= 1)
+        if (allyCount / targetSize >= 1)
         {
             stackSize.color = new Color(0, 255, 0, 2.5f);
             StartCoroutine(winWait());
