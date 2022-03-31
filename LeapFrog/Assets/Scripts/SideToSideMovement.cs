@@ -29,12 +29,16 @@ public class SideToSideMovement : MonoBehaviour
     private void moveEnemy()
     {
         Vector3 enemyPos = mainRigidbody.position;
+        
         if (Mathf.Abs(enemyPos.x - minX) <= 0.05)
+        {
             movingLeft = false;
+        }
         else if (Mathf.Abs(enemyPos.x - maxX) <= 0.05)
+        {
             movingLeft = true;
+        }
 
-        Debug.Log(movingLeft && enemyPos.x > minX);
         if(movingLeft && enemyPos.x >= minX)
         {
             faceCorrectDirection(movingLeft);
