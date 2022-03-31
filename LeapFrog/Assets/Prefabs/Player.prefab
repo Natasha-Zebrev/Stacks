@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 4560532616422716332}
   - component: {fileID: 802894952244288195}
   - component: {fileID: 5985257846989386826}
+  - component: {fileID: 3185142862615831037}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -196,12 +197,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213455e04e645de4997bde477d9c95b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stackController: {fileID: 3185142862615831037}
   benzo: {fileID: 2853716270946994610}
   mainRigidBody: {fileID: 4560532616422716332}
   playerTransform: {fileID: 7348870654100838070}
   moveSpeed: 890
   jumpHeight: 400
   anim: {fileID: 8886480027581160656}
+  gameUI: {fileID: 0}
+  maxHealth: 0
+  totalNumJumps: 1
 --- !u!114 &5985257846989386826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,3 +221,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTransform: {fileID: 0}
   target: {fileID: 7348870654100838070}
+--- !u!114 &3185142862615831037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7348870654100838064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d01a6bdd73aad4195d7f007e52c7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 802894952244288195}
+  stack: []
+  topOfStack: {x: 0, y: 0, z: 0}

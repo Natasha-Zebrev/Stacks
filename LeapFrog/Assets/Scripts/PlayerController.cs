@@ -5,28 +5,34 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+    [SerializeField] private StackController stackController;
 
     [SerializeField] private GameObject benzo;
     [SerializeField] private Rigidbody2D mainRigidBody;
-    [SerializeField] private Transform playerTransform;
+    [SerializeField] public Transform playerTransform;
     private SpriteRenderer mainSpriteRenderer;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
     bool isGrounded = true;
     [SerializeField] private Animator anim;
-    public List<GameObject> stack = new List<GameObject>();
     [SerializeField] private GameUI gameUI;
     [SerializeField] private int maxHealth;
-    public Vector3 topOfStack;
     int currentNumJumps = 1;
-    int totalNumJumps = 1;
+    public int totalNumJumps = 1;
+    public List<GameObject> stack
+    {
+        get
+        {
+            return stackController.stack;
+        }
+    }
 
     private void Start()
     {
         anim.enabled = false;
-        stack.Add(benzo);
+        stackController.stack.Add(benzo);
         mainSpriteRenderer = benzo.GetComponent<SpriteRenderer>();
-        topOfStack = new Vector3(0, benzo.GetComponent<BoxCollider2D>().bounds.size.y * 0.5f, 0);
+        stackController.topOfStack = new Vector3(0, benzo.GetComponent<BoxCollider2D>().bounds.size.y * 0.5f, 0);
     }
 
     // Update is called once per frame
@@ -101,17 +107,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Turn a defeated enemy into an ally and add it to the player stack
-    public void addAlly(GameObject enemy)
+    public void addAlly(GameObject ally)
     {
-        GameObject newAlly = Instantiate(enemy, playerTransform, false);
-        float allyHeight = newAlly.GetComponent<BoxCollider2D>().bounds.size.y;
-        topOfStack += new Vector3(0, allyHeight, 0);
-        newAlly.transform.localPosition = topOfStack;
-        topOfStack += new Vector3(0 , allyHeight * 0.5f, 0);
-        stack.Add(newAlly);
-        whatAlly(newAlly, true);
-        GameUI.instance.CheckWin(stack.Count - 1);
+        stackController.addAlly(ally);
+    }
+
+    public void removeAlly(int i)
+    {
+        stackController.removeAlly(i);
     }
 
     //Flips an ally/allies to whichever direction the player is facing
@@ -121,7 +124,7 @@ public class PlayerController : MonoBehaviour
         {
             for(int i = 1; i < stack.Count; i++)
             {
-                stack[i].GetComponent<SpriteRenderer>().flipX = false;
+                stackController.stack[i].GetComponent<SpriteRenderer>().flipX = false;
             }
         }
 
@@ -129,21 +132,8 @@ public class PlayerController : MonoBehaviour
         {
             for(int i = 1; i < stack.Count; i++)
             {
-                stack[i].GetComponent<SpriteRenderer>().flipX = true;
+                stackController.stack[i].GetComponent<SpriteRenderer>().flipX = true;
             }
-        }
-    }
-
-    public void whatAlly(GameObject ally, bool adding)
-    {
-        switch(ally.tag)
-        {
-            case "SlimeAlly":
-                if (adding)
-                    totalNumJumps++;
-                else
-                    totalNumJumps--;
-                break;
         }
     }
 }
