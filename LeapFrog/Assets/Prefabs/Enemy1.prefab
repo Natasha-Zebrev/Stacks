@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6082724298193060699}
   - component: {fileID: 2481488050403711535}
   - component: {fileID: 7549084645847957966}
-  - component: {fileID: 6903454584493994910}
+  - component: {fileID: -876113707728100093}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -148,7 +148,7 @@ MonoBehaviour:
   enemyTransform: {fileID: 5563738122432933712}
   enemyCollider: {fileID: 6082724298193060699}
   allyPrefab: {fileID: 2452001493388677523, guid: 82a5102cad558b246ba529e5fd08888b, type: 3}
---- !u!114 &6903454584493994910
+--- !u!114 &-876113707728100093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,8 +157,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 118810738125033534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c5bf26096434942883addc78e017c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 241c03f2723fcda429536b2991ebe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTransform: {fileID: 5563738122432933712}
-  moveSpeed: 1
+  mainRigidbody: {fileID: 2481488050403711535}
+  moveSpeed: 500
+  sideToSideDistance: 5

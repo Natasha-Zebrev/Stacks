@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.47
+      value: 16.62
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.32
+      value: 2.46
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -431,6 +431,7 @@ MonoBehaviour:
   healthBar: {fileID: 1390830356}
   gameTime: {fileID: 1019605972}
   stackSize: {fileID: 766029839}
+  allyCount: 0
   targetSize: 5
 --- !u!114 &748304750
 MonoBehaviour:
@@ -780,11 +781,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.2
+      value: -19.14
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.z
