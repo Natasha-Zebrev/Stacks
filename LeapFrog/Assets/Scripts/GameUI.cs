@@ -29,6 +29,12 @@ public class GameUI : MonoBehaviour
     {
         ShowGameTime();
         ShowStackSize();
+
+        //Restart the level
+        if(Input.GetKeyDown(KeyCode.R) && allyCount != targetSize)
+        {
+            LoadingScreen.LoadScene("Level1");
+        }
     }
 
     string FormatSeconds(float elapsed)
