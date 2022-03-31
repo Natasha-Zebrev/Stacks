@@ -84,5 +84,6 @@ public class EnemyController : MonoBehaviour
         Destroy(stack[i]);
         stack.RemoveAt(i);
         PlayerController.instance.topOfStack -= removeHeight;
+        PlayerController.instance.whatAlly(removedAlly, false);
     }
 }

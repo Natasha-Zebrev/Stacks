@@ -7,6 +7,8 @@ using System;
 
 public class GameUI : MonoBehaviour
 {
+    public static GameUI instance;
+
     [SerializeField] private Image healthBar;
     [SerializeField] private TMP_Text gameTime;
     [SerializeField] private TMP_Text stackSize;
@@ -19,6 +21,7 @@ public class GameUI : MonoBehaviour
         if(targetSize < 2) {
             targetSize = 2;
         }
+        instance = this;
     }
 
     void Update()
@@ -49,24 +52,27 @@ public class GameUI : MonoBehaviour
     public void ShowStackSize()
     {
         int stackCount = PlayerController.instance.stack.Count;
-        stackSize.text = "Stack Size: " + PlayerController.instance.stack.Count + "/" + targetSize;
-        CheckWin(stackCount);
+        stackSize.text = "Stack Size: " + stackCount + "/" + targetSize;
     }
 
     //Checks to see if the player has won the level; changes to the level select if true
-    private void CheckWin(int stackCount)
+    public void CheckWin(int stackCount)
     {
         if (stackCount / targetSize >= 1)
         {
             stackSize.color = new Color(0, 255, 0, 2.5f);
-            winWait();
-            LoadingScreen.LoadScene("LevelSelect");
+            StartCoroutine(winWait());
         }
     }
 
     //Makes the game wait after winning (intended to be used before loading the level select scene)
-    IEnumerator winWait()
+    private IEnumerator winWait()
     {
-        yield return new WaitForSeconds(3);
+        float timeUntilReload = Time.realtimeSinceStartup + 3;
+        while (timeUntilReload > Time.realtimeSinceStartup)
+        {
+            yield return null;
+        }
+        LoadingScreen.LoadScene("LevelSelect");
     }
 }

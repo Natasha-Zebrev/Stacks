@@ -7,10 +7,12 @@ TagManager:
   - Floor
   - Enemy
   - Ally
+  - SlimeAlly
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - Water
   - Water
   - UI
   - 
