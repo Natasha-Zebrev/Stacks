@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private BoxCollider2D enemyCollider;
     [SerializeField] private GameObject allyPrefab;
-    private float squishLeeway = 1.2f;
+    private float squishLeeway = 1.4f;
 
     // Start is called before the first frame update
     void Start()
