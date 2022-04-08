@@ -9,6 +9,7 @@ TagManager:
   - Ally
   - SlimeAlly
   - Wall
+  - GhostAlly
   layers:
   - Default
   - TransparentFX
