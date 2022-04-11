@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float minY;
     private Vector3 currentPos;
+    private int maxZoom = 16;
+    private int minZoom = 5;
 
     void Start()
     {
@@ -24,14 +26,19 @@ public class CameraController : MonoBehaviour
         currentPos.x = target.position.x;
         mainTransform.position = currentPos;
         Vector3 stageDimensions = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, 0));
-        Debug.Log(stageDimensions.y);
-        if (Input.mouseScrollDelta.y > 0)
+        double zoomNum = mainCamera.orthographicSize;
+        Debug.Log(zoomNum);
+        if (Input.mouseScrollDelta.y > 0 && zoomNum > minZoom)
+        {
             mainCamera.orthographicSize -= 2;
+            currentPos = new Vector3(mainTransform.position.x, mainTransform.position.y - 2f, mainTransform.position.z);
+        }
+            
 
-        else if (Input.mouseScrollDelta.y < 0)
+        else if (Input.mouseScrollDelta.y < 0 && zoomNum < maxZoom)
         {
             mainCamera.orthographicSize += 2;
-            mainCamera.transform.position += mainTransform.position.SetY(currentPos.y * Mathf.Abs(stageDimensions.y));
+            currentPos = new Vector3(mainTransform.position.x, mainTransform.position.y + 2f, mainTransform.position.z);
         }
 
        // mainTransform.position.SetY(Mathf.Clamp(stageDimensions.y, minY, 100)); 
