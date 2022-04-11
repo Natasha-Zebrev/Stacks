@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class GameUI : MonoBehaviour
         //Restart the level
         if(Input.GetKeyDown(KeyCode.R) && allyCount != targetSize)
         {
-            LoadingScreen.LoadScene("Level1");
+            String currentLevel = SceneManager.GetActiveScene().name;
+            LoadingScreen.LoadScene(currentLevel);
         }
     }
 
