@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideToSideMovement : MonoBehaviour
+public class ObstacleSideToSide : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D mainRigidbody;
+    [SerializeField] private Transform mainTransform;
     [SerializeField] private SpriteRenderer mainRenderer;
-    [SerializeField] private int moveSpeed;
+    [SerializeField] private float moveSpeed;
     [SerializeField] private int sideToSideDistance;
     private float startingX;
     private bool movingLeft = true;
@@ -15,39 +15,41 @@ public class SideToSideMovement : MonoBehaviour
 
     void Start()
     {
-        startingX = mainRigidbody.position.x;
+        startingX = mainTransform.position.x;
         minX = startingX - sideToSideDistance;
         maxX = startingX + sideToSideDistance;
+        //Making it so the obstacle moves that distance every 60 frames (~1 second)
+        moveSpeed /= 60;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveEnemy();
+        moveObstacle();
     }
 
-    private void moveEnemy()
+    private void moveObstacle()
     {
-        Vector3 enemyPos = mainRigidbody.position;
-        
-        if (enemyPos.x - minX <= 0.05)
+        Vector3 obsPos = mainTransform.position;
+
+        if (obsPos.x - minX <= 0.05)
         {
             movingLeft = false;
         }
-        else if (enemyPos.x - maxX >= 0.05)
+        else if (obsPos.x - maxX >= 0.05)
         {
             movingLeft = true;
         }
 
-        if(movingLeft && enemyPos.x >= minX)
+        if (movingLeft && obsPos.x >= minX)
         {
             faceCorrectDirection(movingLeft);
-            mainRigidbody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
+            mainTransform.position -= new Vector3(moveSpeed, 0, 0);
         }
-        else if(!movingLeft && enemyPos.x <= maxX)
+        else if (!movingLeft && obsPos.x <= maxX)
         {
             faceCorrectDirection(movingLeft);
-            mainRigidbody.AddForce(new Vector2(+moveSpeed * Time.deltaTime, 0));
+            mainTransform.position += new Vector3(moveSpeed, 0, 0);
         }
     }
 
@@ -63,5 +65,4 @@ public class SideToSideMovement : MonoBehaviour
     {
         mainRenderer.flipX = !directionMovingLeft;
     }
-
 }
