@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             currentNumJumps--;
             anim.enabled = false;
+            playerOnPlatform(false, null);
         }
 
         //Pause the walking animation if the player is standing still or jumping
@@ -120,6 +121,29 @@ public class PlayerController : MonoBehaviour
                 isGrounded = true;
                 currentNumJumps = totalNumJumps;
             }
+        }
+        else if(collision.gameObject.CompareTag("MovingPlat"))
+        {
+            playerOnPlatform(true, collision);
+            
+        }
+        else
+        {
+            playerOnPlatform(false, collision);
+        }
+    }
+
+    private void playerOnPlatform(bool onPlatform, Collision2D platform)
+    {
+        if (onPlatform)
+        {
+            playerTransform.parent = platform.gameObject.transform;
+            currentNumJumps = totalNumJumps;
+            isGrounded = true;
+        }
+        else
+        {
+            playerTransform.parent = null;
         }
     }
 
