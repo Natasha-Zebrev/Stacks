@@ -104,18 +104,9 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check if the player is touching the floor
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
+        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall"))
         {
             if ((playerTransform.position.y > collision.gameObject.transform.position.y) &&
-               Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
-            {
-                isGrounded = true;
-                currentNumJumps = totalNumJumps;
-            }
-        }
-        else if (collision.gameObject.CompareTag("GhostWall"))
-        {
-            if (!stackController.containsAlly("GhostAlly") && (playerTransform.position.y > collision.gameObject.transform.position.y) &&
                Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
             {
                 isGrounded = true;
