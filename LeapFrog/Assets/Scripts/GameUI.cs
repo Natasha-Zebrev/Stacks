@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
@@ -14,10 +15,15 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TMP_Text stackSize;
     [SerializeField] private int allyCount;
     [SerializeField] private int targetSize;
+    [SerializeField] private GameObject failMenu;
+    [SerializeField] private Button restart;
+    [SerializeField] private Button quit;
     private float gameTimeFloat = 0;
 
      void Start()
     {
+        failMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
         //This condition protects against the game trying to divide by zero or ending with just the player in the stack.
         if(targetSize < 2) {
             targetSize = 2;
@@ -36,6 +42,12 @@ public class GameUI : MonoBehaviour
             LoadingScreen.LoadScene("Level1");
         }
     }
+    void Awake() {
+        restart.onClick.AddListener(() => SceneManager.LoadScene("Level1"));
+        quit.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        
+    }
+
 
     string FormatSeconds(float elapsed)
     {
@@ -72,6 +84,14 @@ public class GameUI : MonoBehaviour
             StartCoroutine(winWait());
         }
     }
+
+    public void Fail() {
+        failMenu.SetActive(true);
+    }
+
+    //public void Restart() {
+    //    LoadingScreen.LoadScene("Level1");
+    //}
 
     //Makes the game wait after winning (intended to be used before loading the level select scene)
     private IEnumerator winWait()
