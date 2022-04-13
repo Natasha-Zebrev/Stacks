@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1383761761350023175}
   - component: {fileID: 4497998405422642554}
   - component: {fileID: 1858854661599909557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GhostAlly
   m_TagString: GhostAlly
   m_Icon: {fileID: 0}
@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1949612853
-  m_SortingLayer: 2
+  m_SortingLayerID: -225024403
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -4703397593965580607, guid: fee9a684adc983c448a5eb86d6845184, type: 3}
   m_Color: {r: 0.031772893, g: 0.9622642, b: 0.056417365, a: 1}

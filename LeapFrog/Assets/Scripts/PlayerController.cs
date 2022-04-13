@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    [SerializeField] private StackController stackController;
+    [SerializeField] public StackController stackController;
 
     [SerializeField] private GameObject benzo;
     [SerializeField] private Rigidbody2D mainRigidBody;
@@ -106,6 +106,15 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
         {
             if ((playerTransform.position.y > collision.gameObject.transform.position.y) &&
+               Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
+            {
+                isGrounded = true;
+                currentNumJumps = totalNumJumps;
+            }
+        }
+        else if (collision.gameObject.CompareTag("GhostWall"))
+        {
+            if (!stackController.containsAlly("GhostAlly") && (playerTransform.position.y > collision.gameObject.transform.position.y) &&
                Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
             {
                 isGrounded = true;

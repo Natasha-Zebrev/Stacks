@@ -10,6 +10,7 @@ TagManager:
   - SlimeAlly
   - Wall
   - GhostAlly
+  - GhostWall
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Water
   - Water
   - UI
-  - 
-  - 
+  - GhostLayer
+  - Player
   - 
   - 
   - 
