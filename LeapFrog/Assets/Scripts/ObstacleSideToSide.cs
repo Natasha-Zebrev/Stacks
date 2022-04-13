@@ -41,28 +41,13 @@ public class ObstacleSideToSide : MonoBehaviour
             movingLeft = true;
         }
 
-        if (movingLeft && obsPos.x >= minX)
+        if (movingLeft)
         {
-            faceCorrectDirection(movingLeft);
             mainTransform.position -= new Vector3(moveSpeed, 0, 0);
         }
-        else if (!movingLeft && obsPos.x <= maxX)
+        else if (!movingLeft)
         {
-            faceCorrectDirection(movingLeft);
             mainTransform.position += new Vector3(moveSpeed, 0, 0);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Floor"))
-        {
-            movingLeft = !movingLeft;
-        }
-    }
-
-    private void faceCorrectDirection(bool directionMovingLeft)
-    {
-        mainRenderer.flipX = !directionMovingLeft;
     }
 }
