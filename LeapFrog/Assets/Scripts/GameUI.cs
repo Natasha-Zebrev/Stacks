@@ -72,22 +72,8 @@ public class GameUI : MonoBehaviour
         if (allyCount / targetSize >= 1)
         {
             stackSize.color = new Color(0, 255, 0, 2.5f);
-            StartCoroutine(winWait());
+            winFailUI.win();
         }
     }
 
-    //public void Restart() {
-    //    LoadingScreen.LoadScene("Level1");
-    //}
-
-    //Makes the game wait after winning (intended to be used before loading the level select scene)
-    private IEnumerator winWait()
-    {
-        float timeUntilReload = Time.realtimeSinceStartup + 3;
-        while (timeUntilReload > Time.realtimeSinceStartup)
-        {
-            yield return null;
-        }
-        LoadingScreen.LoadScene("LevelSelect");
-    }
 }

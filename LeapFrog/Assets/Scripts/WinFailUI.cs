@@ -8,28 +8,55 @@ using System;
 
 public class WinFailUI : MonoBehaviour
 {   
+    //These fields are all related to the winMenu
+    [SerializeField] private GameObject winMenu;
+    [SerializeField] private Button levContinue;
+    [SerializeField] private Button winRestart;
+    [SerializeField] private Button winQuit;
+
+    //These fields are all related to the failMenu
     [SerializeField] private GameObject failMenu;
-    [SerializeField] private Button restart;
-    [SerializeField] private Button quit;
+    [SerializeField] private Button failRestart;
+    [SerializeField] private Button failQuit;
+
+    //This field gets the scene name to reload whatever level the player is on
+    //if restart is clicked
 
     void Start()
     {
-        Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.None;
-        failMenu.SetActive(false);
+        disable();
     }
     void Awake() {
-        restart.onClick.AddListener(() => SceneManager.LoadScene("Level1"));
-        quit.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        String sceneName = SceneManager.GetActiveScene().name + "";
+        levContinue.onClick.AddListener(() => SceneManager.LoadScene("LevelSelect"));
+        winRestart.onClick.AddListener(() => SceneManager.LoadScene(sceneName));
+        winQuit.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        failRestart.onClick.AddListener(() => SceneManager.LoadScene(sceneName));
+        failQuit.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
         
     }
 
     //Used to disable the win and fail menus at the start of each level.
-    public void Disable() {
+    public void disable() {
+        winMenu.SetActive(false);
         failMenu.SetActive(false);
     }
 
-    public void Fail() {
+    //Used to activate the win menu
+    public void win() {
+        freezeTime();
+        winMenu.SetActive(true);
+    }
+
+    //Used to activate the fail menu
+    public void fail() {
+        freezeTime();
         failMenu.SetActive(true);
+    }
+
+    //Used to pause the game when a menu appears
+    private void freezeTime() {
+        Time.timeScale = 0;
     }
 }
