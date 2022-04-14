@@ -21,8 +21,7 @@ public class PlayerController : MonoBehaviour
     int currentNumJumps = 1;
     public int totalNumJumps = 1;
     private float squishLeeway = 1.2f;
-
-    private bool winLoss = false;
+    
     public List<GameObject> stack
     {
         get
@@ -100,7 +99,7 @@ public class PlayerController : MonoBehaviour
             {
                 benzo.SetActive(false);
                 Time.timeScale = 0;
-                gameUI.Fail();
+                gameUI.winFailUI.Fail();
             }
         }
     }
