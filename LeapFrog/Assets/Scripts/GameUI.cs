@@ -15,6 +15,8 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TMP_Text stackSize;
     [SerializeField] private int allyCount;
     [SerializeField] private int targetSize;
+
+    [SerializeField] public WinFailUI winFailUI;
     private float gameTimeFloat = 0;
 
      void Start()
@@ -38,6 +40,7 @@ public class GameUI : MonoBehaviour
             LoadingScreen.LoadScene(currentLevel);
         }
     }
+
 
     string FormatSeconds(float elapsed)
     {
@@ -71,18 +74,8 @@ public class GameUI : MonoBehaviour
         if (allyCount / targetSize >= 1)
         {
             stackSize.color = new Color(0, 255, 0, 2.5f);
-            StartCoroutine(winWait());
+            winFailUI.win();
         }
     }
 
-    //Makes the game wait after winning (intended to be used before loading the level select scene)
-    private IEnumerator winWait()
-    {
-        float timeUntilReload = Time.realtimeSinceStartup + 3;
-        while (timeUntilReload > Time.realtimeSinceStartup)
-        {
-            yield return null;
-        }
-        LoadingScreen.LoadScene("LevelSelect");
-    }
 }

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     int currentNumJumps = 1;
     public int totalNumJumps = 1;
     private float squishLeeway = 1.2f;
+    
     public List<GameObject> stack
     {
         get
@@ -35,6 +36,8 @@ public class PlayerController : MonoBehaviour
         stackController.stack.Add(benzo);
         mainSpriteRenderer = benzo.GetComponent<SpriteRenderer>();
         stackController.topOfStack = new Vector3(0, benzo.GetComponent<BoxCollider2D>().bounds.size.y * 0.5f, 0);
+        //Keeps the game from freezing after restarting from a menu
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -95,7 +98,9 @@ public class PlayerController : MonoBehaviour
             gameUI.showHealthFraction((float)Health / (float)maxHealth);
             if(health <= 0)
             {
-                LoadingScreen.LoadScene("MainMenu");            }
+                benzo.SetActive(false);
+                gameUI.winFailUI.fail();
+            }
         }
     }
 
