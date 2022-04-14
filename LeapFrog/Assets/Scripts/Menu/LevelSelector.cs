@@ -9,6 +9,7 @@ public class LevelSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         level1.onClick.AddListener(() => LoadingScreen.LoadScene("Level1"));
     }
 }
