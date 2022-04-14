@@ -172,4 +172,12 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public void removeFriction(bool friction)
+    {
+        if (friction)
+            mainRigidBody.drag = 0;
+        else
+            mainRigidBody.drag = 1.2f;
+    }
 }

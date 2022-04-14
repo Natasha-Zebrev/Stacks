@@ -64,6 +64,12 @@ public class StackController : MonoBehaviour
                 else if (!containsAlly("GhostAlly"))
                     changeGWLayer(false);
                 break;
+            case "SnakeAlly":
+                if (adding)
+                    player.removeFriction(true);
+                else if (!containsAlly("SnakeAlly"))
+                    player.removeFriction(false);
+                break;
         }
     }
 

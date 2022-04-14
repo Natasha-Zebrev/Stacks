@@ -12,6 +12,7 @@ TagManager:
   - GhostAlly
   - GhostWall
   - MovingPlat
+  - SnakeAlly
   layers:
   - Default
   - TransparentFX
