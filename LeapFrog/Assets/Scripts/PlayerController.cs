@@ -98,8 +98,7 @@ public class PlayerController : MonoBehaviour
             if(health <= 0)
             {
                 benzo.SetActive(false);
-                Time.timeScale = 0;
-                gameUI.winFailUI.Fail();
+                gameUI.winFailUI.fail();
             }
         }
     }
