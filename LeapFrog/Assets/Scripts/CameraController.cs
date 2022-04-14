@@ -28,7 +28,6 @@ public class CameraController : MonoBehaviour
         mainTransform.position = currentPos;
         Vector3 stageDimensions = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, 0));
         double zoomNum = mainCamera.orthographicSize;
-        Debug.Log(zoomNum);
         if (Input.mouseScrollDelta.y > 0 && zoomNum > minZoom)
         {
             minY -= 2f;

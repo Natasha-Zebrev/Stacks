@@ -11,10 +11,11 @@ public class GameUI : MonoBehaviour
     public static GameUI instance;
 
     [SerializeField] private Image healthBar;
+    [SerializeField] private Image stackHealth;
     [SerializeField] private TMP_Text gameTime;
     [SerializeField] private TMP_Text stackSize;
     [SerializeField] private int allyCount;
-    [SerializeField] private int targetSize;
+    [SerializeField] public int targetSize;
 
     [SerializeField] public WinFailUI winFailUI;
     private float gameTimeFloat = 0;
@@ -52,6 +53,11 @@ public class GameUI : MonoBehaviour
     public void showHealthFraction(float fraction)
     {
         healthBar.fillAmount = fraction;
+    }
+
+    public void showStackHealth(float fraction)
+    {
+        stackHealth.fillAmount = fraction;
     }
 
     public void ShowGameTime()

@@ -104,6 +104,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private int stackHealth;
+    public int StackHealth
+    {
+        get
+        {
+            return stackHealth;
+        }
+        set
+        {
+            stackHealth = value;
+            gameUI.showStackHealth((float)Health / (float)maxHealth);
+        }
+    }
+
     private float lastHitTime;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -146,11 +160,13 @@ public class PlayerController : MonoBehaviour
     public void addAlly(GameObject ally)
     {
         stackController.addAlly(ally);
+        gameUI.showStackHealth((float)(stack.Count - 1) / (float)gameUI.targetSize);
     }
 
     public void removeAlly(int i)
     {
         stackController.removeAlly(i);
+        gameUI.showStackHealth((float)(stack.Count - 1) / (float)gameUI.targetSize);
     }
 
     //Flips an ally/allies to whichever direction the player is facing
