@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    [SerializeField] private StackController stackController;
+    [SerializeField] public StackController stackController;
 
     [SerializeField] private GameObject benzo;
     [SerializeField] private Rigidbody2D mainRigidBody;
@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             currentNumJumps--;
             anim.enabled = false;
+            playerOnPlatform(false, null);
         }
 
         //Pause the walking animation if the player is standing still or jumping
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check if the player is touching the floor
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
+        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall"))
         {
             if ((playerTransform.position.y > collision.gameObject.transform.position.y) &&
                Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
@@ -116,6 +117,29 @@ public class PlayerController : MonoBehaviour
                 isGrounded = true;
                 currentNumJumps = totalNumJumps;
             }
+        }
+        else if(collision.gameObject.CompareTag("MovingPlat"))
+        {
+            playerOnPlatform(true, collision);
+            
+        }
+        else
+        {
+            playerOnPlatform(false, collision);
+        }
+    }
+
+    private void playerOnPlatform(bool onPlatform, Collision2D platform)
+    {
+        if (onPlatform)
+        {
+            playerTransform.parent = platform.gameObject.transform;
+            currentNumJumps = totalNumJumps;
+            isGrounded = true;
+        }
+        else
+        {
+            playerTransform.parent = null;
         }
     }
 

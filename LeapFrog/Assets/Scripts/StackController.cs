@@ -57,6 +57,37 @@ public class StackController : MonoBehaviour
                 else
                     player.totalNumJumps--;
                 break;
+
+            case "GhostAlly":
+                if (adding)
+                    changeGWLayer(true);
+                else if (!containsAlly("GhostAlly"))
+                    changeGWLayer(false);
+                break;
+        }
+    }
+
+    //Check if the stack contains a type of ally
+    public bool containsAlly(string tag)
+    {
+        for(int i=0; i<stack.Count; i++)
+        {
+            if (stack[i].CompareTag(tag))
+                return true;
+        }
+        return false;
+    }
+
+    //Change the layer of the ghost walls so that they don't collide with the player/stack
+    private void changeGWLayer(bool canPass)
+    {
+        GameObject[] ghostWalls = GameObject.FindGameObjectsWithTag("GhostWall");
+        foreach(GameObject wall in ghostWalls)
+        {
+            if (canPass)
+                wall.layer = 6;
+            else
+                wall.layer = 0;
         }
     }
 }

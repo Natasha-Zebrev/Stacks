@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3990491579695045749}
   - component: {fileID: 2474443219756406817}
   - component: {fileID: 8886480027581160656}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Benzo
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -225024403
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8149130431376653727, guid: cf6b0051d412af940bddccfa44a2b398, type: 3}
   m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   m_FlipX: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 802894952244288195}
   - component: {fileID: 5985257846989386826}
   - component: {fileID: 3185142862615831037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -176,10 +176,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 2
+  m_Mass: 1.25
+  m_LinearDrag: 1.2
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -201,8 +201,8 @@ MonoBehaviour:
   benzo: {fileID: 2853716270946994610}
   mainRigidBody: {fileID: 4560532616422716332}
   playerTransform: {fileID: 7348870654100838070}
-  moveSpeed: 1000
-  jumpHeight: 750
+  moveSpeed: 1250
+  jumpHeight: 1000
   anim: {fileID: 8886480027581160656}
   gameUI: {fileID: 0}
   maxHealth: 0
