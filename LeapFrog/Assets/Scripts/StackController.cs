@@ -32,7 +32,6 @@ public class StackController : MonoBehaviour
         topOfStack += new Vector3(0, allyHeight * 0.5f, 0);
         stack.Add(newAlly);
         whatAlly(newAlly, true);
-        GameUI.instance.CheckWin(stack.Count - 1);
     }
 
     //Remove an ally from the stack
