@@ -205,7 +205,7 @@ MonoBehaviour:
   jumpHeight: 1000
   anim: {fileID: 8886480027581160656}
   gameUI: {fileID: 0}
-  maxHealth: 0
+  maxHealth: 2
   totalNumJumps: 1
 --- !u!114 &5985257846989386826
 MonoBehaviour:
@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab121b1628a1dc4096b4144c553821b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTransform: {fileID: 0}
+  mainCamera: {fileID: 0}
   target: {fileID: 7348870654100838070}
-  minY: 5
+  minY: 9
 --- !u!114 &3185142862615831037
 MonoBehaviour:
   m_ObjectHideFlags: 0

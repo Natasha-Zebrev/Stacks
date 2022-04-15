@@ -183,4 +183,4 @@ MonoBehaviour:
   mainRigidbody: {fileID: 7165181280588501754}
   mainRenderer: {fileID: 2959199739559276131}
   moveSpeed: 400
-  sideToSideDistance: 4
+  sideToSideDistance: 6

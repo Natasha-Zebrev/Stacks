@@ -35,9 +35,10 @@ public class GameUI : MonoBehaviour
         ShowStackSize();
 
         //Restart the level
-        if(Input.GetKeyDown(KeyCode.R) && allyCount != targetSize)
+        if(Input.GetKeyDown(KeyCode.R))
         {
             String currentLevel = SceneManager.GetActiveScene().name;
+            Time.timeScale = 1;
             LoadingScreen.LoadScene(currentLevel);
         }
     }
