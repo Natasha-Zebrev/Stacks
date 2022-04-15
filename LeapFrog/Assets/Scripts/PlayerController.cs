@@ -132,7 +132,8 @@ public class PlayerController : MonoBehaviour
                 currentNumJumps = totalNumJumps;
             }
         }
-        else if(collision.gameObject.CompareTag("MovingPlat"))
+        else if(collision.gameObject.CompareTag("MovingPlat") && playerTransform.position.y > collision.gameObject.transform.position.y &&
+             Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
         {
             playerOnPlatform(true, collision);
             
