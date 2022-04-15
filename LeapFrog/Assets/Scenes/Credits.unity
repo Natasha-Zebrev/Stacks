@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Benza \t\t\tMegupets\nLava Cube\t \t\tLuminousDragonGames\nSlimeball\t\t\tRichard
+  m_text: "Benza \t\t\tMegupets\nGhost\t\t\t\tXenosNS\nLava Cube\t \t\tLuminousDragonGames\nSlimeball\t\t\tRichard
     Lewis"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54a0a069042baa64d902fcd2f8ef612e, type: 2}
