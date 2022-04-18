@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    [SerializeField] private StackController stackController;
+    [SerializeField] public StackController stackController;
 
     [SerializeField] private GameObject benzo;
     [SerializeField] private Rigidbody2D mainRigidBody;
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     int currentNumJumps = 1;
     public int totalNumJumps = 1;
     private float squishLeeway = 1.2f;
+    
     public List<GameObject> stack
     {
         get
@@ -35,6 +36,8 @@ public class PlayerController : MonoBehaviour
         stackController.stack.Add(benzo);
         mainSpriteRenderer = benzo.GetComponent<SpriteRenderer>();
         stackController.topOfStack = new Vector3(0, benzo.GetComponent<BoxCollider2D>().bounds.size.y * 0.5f, 0);
+        //Keeps the game from freezing after restarting from a menu
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -63,6 +66,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             currentNumJumps--;
             anim.enabled = false;
+            playerOnPlatform(false, null);
         }
 
         //Pause the walking animation if the player is standing still or jumping
@@ -94,7 +98,23 @@ public class PlayerController : MonoBehaviour
             gameUI.showHealthFraction((float)Health / (float)maxHealth);
             if(health <= 0)
             {
-                LoadingScreen.LoadScene("MainMenu");            }
+                benzo.SetActive(false);
+                gameUI.winFailUI.fail();
+            }
+        }
+    }
+
+    private int stackHealth;
+    public int StackHealth
+    {
+        get
+        {
+            return stackHealth;
+        }
+        set
+        {
+            stackHealth = value;
+            gameUI.showStackHealth((float)Health / (float)maxHealth);
         }
     }
 
@@ -103,7 +123,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check if the player is touching the floor
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
+        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall"))
         {
             if ((playerTransform.position.y > collision.gameObject.transform.position.y) &&
                Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
@@ -112,16 +132,42 @@ public class PlayerController : MonoBehaviour
                 currentNumJumps = totalNumJumps;
             }
         }
+        else if(collision.gameObject.CompareTag("MovingPlat") && playerTransform.position.y > collision.gameObject.transform.position.y &&
+             Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
+        {
+            playerOnPlatform(true, collision);
+            
+        }
+        else
+        {
+            playerOnPlatform(false, collision);
+        }
+    }
+
+    private void playerOnPlatform(bool onPlatform, Collision2D platform)
+    {
+        if (onPlatform)
+        {
+            playerTransform.parent = platform.gameObject.transform;
+            currentNumJumps = totalNumJumps;
+            isGrounded = true;
+        }
+        else
+        {
+            playerTransform.parent = null;
+        }
     }
 
     public void addAlly(GameObject ally)
     {
         stackController.addAlly(ally);
+        gameUI.showStackHealth((float)(stack.Count - 1) / (float)gameUI.targetSize);
     }
 
     public void removeAlly(int i)
     {
         stackController.removeAlly(i);
+        gameUI.showStackHealth((float)(stack.Count - 1) / (float)gameUI.targetSize);
     }
 
     //Flips an ally/allies to whichever direction the player is facing
@@ -142,5 +188,13 @@ public class PlayerController : MonoBehaviour
                 stackController.stack[i].GetComponent<SpriteRenderer>().flipX = true;
             }
         }
+    }
+
+    public void removeFriction(bool friction)
+    {
+        if (friction)
+            mainRigidBody.drag = 0;
+        else
+            mainRigidBody.drag = 1.2f;
     }
 }

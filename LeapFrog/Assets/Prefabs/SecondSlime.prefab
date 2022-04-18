@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTransform: {fileID: 4073647569348565387}
-  moveSpeed: 1
+  moveSpeed: 3

@@ -18,27 +18,30 @@ public class CameraController : MonoBehaviour
         mainTransform = mainCamera.transform;
         currentPos = mainTransform.position;
         currentPos.y = Math.Max(minY, target.position.y);
+        mainCamera.orthographicSize = 9;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         currentPos.x = target.position.x;
+        currentPos.y = Math.Max(minY, target.position.y);
         mainTransform.position = currentPos;
         Vector3 stageDimensions = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, 0));
         double zoomNum = mainCamera.orthographicSize;
-        Debug.Log(zoomNum);
         if (Input.mouseScrollDelta.y > 0 && zoomNum > minZoom)
         {
+            minY -= 2f;
             mainCamera.orthographicSize -= 2;
-            currentPos = new Vector3(mainTransform.position.x, mainTransform.position.y - 2f, mainTransform.position.z);
+            currentPos = new Vector3(mainTransform.position.x, Math.Max(minY, target.position.y - 2f), mainTransform.position.z);
         }
             
 
         else if (Input.mouseScrollDelta.y < 0 && zoomNum < maxZoom)
         {
+            minY += 2f;
             mainCamera.orthographicSize += 2;
-            currentPos = new Vector3(mainTransform.position.x, mainTransform.position.y + 2f, mainTransform.position.z);
+            currentPos = new Vector3(mainTransform.position.x, Math.Max(minY, target.position.y + 2f), mainTransform.position.z);
         }
 
        // mainTransform.position.SetY(Mathf.Clamp(stageDimensions.y, minY, 100)); 

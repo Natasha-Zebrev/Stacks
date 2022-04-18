@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3990491579695045749}
   - component: {fileID: 2474443219756406817}
   - component: {fileID: 8886480027581160656}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Benzo
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -225024403
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8149130431376653727, guid: cf6b0051d412af940bddccfa44a2b398, type: 3}
   m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   m_FlipX: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 802894952244288195}
   - component: {fileID: 5985257846989386826}
   - component: {fileID: 3185142862615831037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ MonoBehaviour:
   jumpHeight: 1000
   anim: {fileID: 8886480027581160656}
   gameUI: {fileID: 0}
-  maxHealth: 0
+  maxHealth: 2
   totalNumJumps: 1
 --- !u!114 &5985257846989386826
 MonoBehaviour:
@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab121b1628a1dc4096b4144c553821b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTransform: {fileID: 0}
+  mainCamera: {fileID: 0}
   target: {fileID: 7348870654100838070}
-  minY: 5
+  minY: 9
 --- !u!114 &3185142862615831037
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,11 @@ TagManager:
   - Ally
   - SlimeAlly
   - Wall
+  - GhostAlly
+  - GhostWall
+  - MovingPlat
+  - SnakeAlly
+  - WinPlat
   layers:
   - Default
   - TransparentFX
@@ -16,8 +21,8 @@ TagManager:
   - Water
   - Water
   - UI
-  - 
-  - 
+  - GhostLayer
+  - Player
   - 
   - 
   - 

@@ -30,11 +30,11 @@ public class SideToSideMovement : MonoBehaviour
     {
         Vector3 enemyPos = mainRigidbody.position;
         
-        if (Mathf.Abs(enemyPos.x - minX) <= 0.05)
+        if (enemyPos.x - minX <= 0.05)
         {
             movingLeft = false;
         }
-        else if (Mathf.Abs(enemyPos.x - maxX) <= 0.05)
+        else if (enemyPos.x - maxX >= 0.05)
         {
             movingLeft = true;
         }
