@@ -142,6 +142,11 @@ public class PlayerController : MonoBehaviour
         {
             playerOnPlatform(false, collision);
         }
+
+        if(collision.gameObject.CompareTag("KillBox"))
+        {
+            gameUI.winFailUI.fail();
+        }
     }
 
     private void playerOnPlatform(bool onPlatform, Collision2D platform)
