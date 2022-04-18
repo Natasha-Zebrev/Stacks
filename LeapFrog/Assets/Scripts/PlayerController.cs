@@ -122,18 +122,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Check if the player is touching the floor
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall"))
+        bool aboveThing = benzo.GetComponent<BoxCollider2D>().bounds.min.y > collision.gameObject.transform.position.y;
+        float xPosDif = Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x);
+        bool onObstacle = aboveThing && xPosDif < collision.gameObject.GetComponent<Collider2D>().bounds.size.x;
+
+        if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall")) && onObstacle)
         {
-            if ((playerTransform.position.y > collision.gameObject.transform.position.y) &&
-               Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
-            {
                 isGrounded = true;
                 currentNumJumps = totalNumJumps;
-            }
         }
-        else if(collision.gameObject.CompareTag("MovingPlat") && playerTransform.position.y > collision.gameObject.transform.position.y &&
-             Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x) < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
+        //Check if the player is touching the floor
+        else if(collision.gameObject.CompareTag("Enemy") && aboveThing && xPosDif < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
+        {    
+                isGrounded = true;
+                currentNumJumps = totalNumJumps;
+        }
+        else if(collision.gameObject.CompareTag("MovingPlat") && onObstacle)
         {
             playerOnPlatform(true, collision);
             
