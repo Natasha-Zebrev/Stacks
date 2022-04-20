@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private BoxCollider2D enemyCollider;
     [SerializeField] private GameObject allyPrefab;
-    private float squishLeeway = 1.4f;
+    private float squishLeeway = 0.75f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
         if (collider.CompareTag("Player")) 
         {
             if ((enemyTransform.position.y < collider.transform.position.y) && 
-                Math.Abs(enemyTransform.position.x - collider.transform.position.x) < (enemyCollider.bounds.size.x * squishLeeway * 0.5))
+                Math.Abs(enemyTransform.position.x - collider.transform.position.x) < (enemyCollider.bounds.size.x * squishLeeway))
             {
                 PlayerController player = collider.GetComponentInParent<PlayerController>();
                 player.addAlly(allyPrefab);
