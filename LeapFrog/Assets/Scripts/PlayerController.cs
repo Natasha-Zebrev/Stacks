@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth;
     int currentNumJumps = 1;
     public int totalNumJumps = 1;
-    private float squishLeeway = 1.2f;
     
     public List<GameObject> stack
     {
@@ -122,18 +121,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        bool aboveThing = benzo.GetComponent<BoxCollider2D>().bounds.min.y > collision.gameObject.transform.position.y;
+        bool aboveThing = benzo.GetComponent<BoxCollider2D>().bounds.min.y > collision.collider.bounds.max.y - collision.collider.bounds.size.y / 10;
         float xPosDif = Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x);
-        bool onObstacle = aboveThing && xPosDif < collision.gameObject.GetComponent<Collider2D>().bounds.size.x;
+        bool onObstacle = aboveThing && xPosDif < (collision.collider.bounds.size.x + collision.otherCollider.bounds.size.x) / 2;
 
-        if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall")) && onObstacle)
+        if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") ||
+            collision.gameObject.CompareTag("GhostWall") || collision.gameObject.CompareTag("Enemy")) && onObstacle)
         {
-                isGrounded = true;
-                currentNumJumps = totalNumJumps;
-        }
-        //Check if the player is touching the floor
-        else if(collision.gameObject.CompareTag("Enemy") && aboveThing && xPosDif < (collision.gameObject.GetComponent<Collider2D>().bounds.size.x * squishLeeway * 0.5))
-        {    
                 isGrounded = true;
                 currentNumJumps = totalNumJumps;
         }
