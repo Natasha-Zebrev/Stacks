@@ -1662,7 +1662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTransform: {fileID: 969242027}
   mainRenderer: {fileID: 969242026}
-  moveSpeed: 0.5
+  moveSpeed: 72
   sideToSideDistance: 3
 --- !u!1001 &1042810510
 PrefabInstance:

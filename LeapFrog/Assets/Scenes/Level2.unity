@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217339361797793347, guid: f9fae506ad1da804f9e8550b969340be, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4217339361797793347, guid: f9fae506ad1da804f9e8550b969340be, type: 3}
       propertyPath: m_LocalScale.x
@@ -1050,7 +1050,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5258198749165700785, guid: b1831619f83177848af9f9292e400037, type: 3}
       propertyPath: moveSpeed
-      value: 0.5
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 5258198749165700785, guid: b1831619f83177848af9f9292e400037, type: 3}
       propertyPath: sideToSideDistance
