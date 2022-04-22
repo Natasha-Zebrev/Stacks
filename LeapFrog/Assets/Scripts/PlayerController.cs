@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth;
     int currentNumJumps = 1;
     public int totalNumJumps = 1;
+    public bool touchLava = false;
     
     public List<GameObject> stack
     {
@@ -125,11 +126,42 @@ public class PlayerController : MonoBehaviour
         float xPosDif = Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x);
         bool onObstacle = aboveThing && xPosDif < (collision.collider.bounds.size.x + collision.otherCollider.bounds.size.x) / 2;
 
-        if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") ||
-            collision.gameObject.CompareTag("GhostWall") || collision.gameObject.CompareTag("Enemy")) && onObstacle)
+        if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall")) || collision.gameObject.CompareTag("Enemy") ||
+            (collision.gameObject.CompareTag("LavaWall") && stackController.containsAlly("DemonAlly")) && onObstacle)
         {
                 isGrounded = true;
                 currentNumJumps = totalNumJumps;
+        }
+        else if (collision.gameObject.CompareTag("LavaWall") && !touchLava)
+        {
+            if (Health > 0)
+            {
+                    Health--;
+                    Debug.Log(Health);
+             }
+               /* else if (stack.Count == 2)
+                {
+
+                    PlayerController.instance.removeAlly(stack.Count - 1);
+                }
+                else if (stack.Count > 2 && stack.Count <= 14)
+                {
+                    int numToRemove = (int)Mathf.Floor(Mathf.Sqrt(stack.Count - 2));
+                    int stackCount = stack.Count;
+                    for (int i = stackCount - 1; i > stackCount - 1 - numToRemove; i--)
+                    {
+                        PlayerController.instance.removeAlly(i);
+                    }
+                }
+                else if (stack.Count > 14)
+                {
+                    int removeMax = 5;
+                    for (int i = stack.Count - 1; i > stack.Count - 1 - removeMax; i--)
+                    {
+                        PlayerController.instance.removeAlly(i);
+                    }
+                }
+               */
         }
         else if(collision.gameObject.CompareTag("MovingPlat") && onObstacle)
         {
