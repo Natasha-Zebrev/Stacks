@@ -69,6 +69,12 @@ public class StackController : MonoBehaviour
                 else if (!containsAlly("SnakeAlly"))
                     player.removeFriction(false);
                 break;
+            case "DemonAlly":
+                if (adding)
+                    player.touchLava = true;
+                else if (!containsAlly("DemonAlly"))
+                    player.touchLava = false;
+                break;
         }
     }
 
