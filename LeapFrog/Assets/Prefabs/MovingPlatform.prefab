@@ -124,5 +124,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTransform: {fileID: 5258198749165700790}
   mainRenderer: {fileID: 5258198749165700791}
-  moveSpeed: 0.5
+  moveSpeed: 72
   sideToSideDistance: 3
