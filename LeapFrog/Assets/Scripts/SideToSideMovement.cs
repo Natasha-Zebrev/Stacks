@@ -8,6 +8,7 @@ public class SideToSideMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer mainRenderer;
     [SerializeField] private int moveSpeed;
     [SerializeField] private int sideToSideDistance;
+    [SerializeField] private bool flippedSprite;
     private float startingX;
     private bool movingLeft = true;
     private float minX;
@@ -61,7 +62,10 @@ public class SideToSideMovement : MonoBehaviour
 
     private void faceCorrectDirection(bool directionMovingLeft)
     {
-        mainRenderer.flipX = !directionMovingLeft;
+        if (!flippedSprite)
+            mainRenderer.flipX = !directionMovingLeft;
+        else
+            mainRenderer.flipX = directionMovingLeft;
     }
 
 }
