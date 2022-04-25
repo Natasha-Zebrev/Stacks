@@ -122,12 +122,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        bool aboveThing = benzo.GetComponent<BoxCollider2D>().bounds.min.y > collision.collider.bounds.max.y - collision.collider.bounds.size.y / 10;
+        bool aboveThing = benzo.GetComponent<BoxCollider2D>().bounds.min.y > (collision.collider.bounds.max.y - collision.collider.bounds.size.y / 10);
         float xPosDif = Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x);
         bool onObstacle = aboveThing && xPosDif < (collision.collider.bounds.size.x + collision.otherCollider.bounds.size.x) / 2;
 
-        if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall")) || collision.gameObject.CompareTag("Enemy") ||
-            (collision.gameObject.CompareTag("LavaWall") && stackController.containsAlly("DemonAlly")) && onObstacle)
+        if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall") || collision.gameObject.CompareTag("Enemy") ||
+            collision.gameObject.CompareTag("LavaWall") && stackController.containsAlly("DemonAlly")) && onObstacle)
         {
                 isGrounded = true;
                 currentNumJumps = totalNumJumps;
