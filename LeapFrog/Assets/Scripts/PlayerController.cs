@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     int currentNumJumps = 1;
     public int totalNumJumps = 1;
     public bool touchLava = false;
+    public bool canJump = true;
     
     public List<GameObject> stack
     {
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump
-        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && currentNumJumps != 0)
+        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && currentNumJumps != 0 && canJump)
         {
             mainRigidBody.AddForce(new Vector2(0 , jumpHeight));
             isGrounded = false;
