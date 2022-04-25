@@ -17,6 +17,7 @@ TagManager:
   - KillBox
   - DemonAlly
   - LavaWall
+  - RockAlly
   layers:
   - Default
   - TransparentFX
