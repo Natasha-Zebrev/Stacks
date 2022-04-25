@@ -43,11 +43,11 @@ public class ObstacleSideToSide : MonoBehaviour
 
         if (movingLeft)
         {
-            mainTransform.position -= new Vector3(moveSpeed, 0, 0);
+            mainTransform.position -= new Vector3(moveSpeed * Time.deltaTime, 0, 0);
         }
         else if (!movingLeft)
         {
-            mainTransform.position += new Vector3(moveSpeed, 0, 0);
+            mainTransform.position += new Vector3(moveSpeed * Time.deltaTime, 0, 0);
         }
     }
 }
