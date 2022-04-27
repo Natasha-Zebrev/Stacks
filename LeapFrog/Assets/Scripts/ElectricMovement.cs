@@ -5,7 +5,6 @@ using UnityEngine;
 public class ElectricMovement : MonoBehaviour
 {
     [SerializeField] private Transform electricTransform;
-    [SerializeField] private Rigidbody2D mainRigidbody;
     [SerializeField] private SpriteRenderer mainRenderer;
     [SerializeField] private int sideToSideDistance;
     [SerializeField] private bool flippedSprite;
@@ -17,7 +16,7 @@ public class ElectricMovement : MonoBehaviour
 
     void Start()
     {
-        startingX = mainRigidbody.position.x;
+        startingX = electricTransform.position.x;
         minX = startingX - sideToSideDistance;
         maxX = startingX + sideToSideDistance;
     }
@@ -34,7 +33,7 @@ public class ElectricMovement : MonoBehaviour
 
     private void moveElectricEnemy()
     {
-        Vector3 enemyPos = mainRigidbody.position;
+        Vector3 enemyPos = electricTransform.position;
             if (enemyPos.x - minX <= 0.05)
             {
                 movingLeft = false;

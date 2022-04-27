@@ -1627,7 +1627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630189784876326652, guid: b0cadd34e85f63d4e8827a99a3238918, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5900683
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 2630189784876326652, guid: b0cadd34e85f63d4e8827a99a3238918, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5468,7 +5468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630189784876326652, guid: b0cadd34e85f63d4e8827a99a3238918, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5900683
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 2630189784876326652, guid: b0cadd34e85f63d4e8827a99a3238918, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5505,6 +5505,10 @@ PrefabInstance:
     - target: {fileID: 5239445888232986189, guid: b0cadd34e85f63d4e8827a99a3238918, type: 3}
       propertyPath: m_Name
       value: ElectricEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816745279446575597, guid: b0cadd34e85f63d4e8827a99a3238918, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0cadd34e85f63d4e8827a99a3238918, type: 3}
