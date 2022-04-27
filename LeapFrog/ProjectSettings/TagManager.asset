@@ -18,6 +18,7 @@ TagManager:
   - DemonAlly
   - LavaWall
   - RockAlly
+  - ElectricAlly
   layers:
   - Default
   - TransparentFX
