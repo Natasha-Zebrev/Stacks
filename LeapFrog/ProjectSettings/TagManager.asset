@@ -19,6 +19,7 @@ TagManager:
   - LavaWall
   - RockAlly
   - ElectricAlly
+  - Elevator
   layers:
   - Default
   - TransparentFX

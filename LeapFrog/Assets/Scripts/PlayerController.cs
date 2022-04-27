@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
         bool onObstacle = aboveThing && xPosDif < (collision.collider.bounds.size.x + collision.otherCollider.bounds.size.x) / 2;
 
         if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall") || collision.gameObject.CompareTag("Enemy") ||
-            collision.gameObject.CompareTag("LavaWall") && stackController.containsAlly("DemonAlly")) && onObstacle)
+            collision.gameObject.CompareTag("Elevator") || collision.gameObject.CompareTag("LavaWall") && stackController.containsAlly("DemonAlly")) && onObstacle)
         {
                 isGrounded = true;
                 currentNumJumps = totalNumJumps;
