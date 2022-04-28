@@ -21,6 +21,7 @@ TagManager:
   - ElectricAlly
   - Elevator
   - MushroomAlly
+  - MushroomFloor
   - SwitcherooAlly
   layers:
   - Default

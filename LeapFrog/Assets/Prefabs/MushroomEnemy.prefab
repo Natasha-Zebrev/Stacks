@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9063967503767437035}
   - component: {fileID: 9188736496071518372}
   - component: {fileID: 3543286117405140980}
+  - component: {fileID: 128623532386093217}
   m_Layer: 0
   m_Name: MushroomEnemy
   m_TagString: Enemy
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018769027047038506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.24, y: -0.08, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -167,3 +168,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &128623532386093217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018769027047038506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c03f2723fcda429536b2991ebe60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainRigidbody: {fileID: 9063967503767437035}
+  mainRenderer: {fileID: 4919684987602069529}
+  moveSpeed: 300
+  sideToSideDistance: 3
+  flippedSprite: 0

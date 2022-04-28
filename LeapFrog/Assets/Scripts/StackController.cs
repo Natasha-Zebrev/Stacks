@@ -85,6 +85,13 @@ public class StackController : MonoBehaviour
                     player.canJump = true;
                 break;
 
+            case "MushroomAlly":
+                if (adding)
+                    seeShroomPlat(true);
+                else if (!containsAlly("MushroomAlly"))
+                    seeShroomPlat(false);
+                break;
+
             case "SwitcherooAlly":
                 if (adding)
                     player.controlsReversed = true;
@@ -115,6 +122,21 @@ public class StackController : MonoBehaviour
                 wall.layer = 6;
             else
                 wall.layer = 0;
+        }
+    }
+
+    private void seeShroomPlat(bool canSee) {
+        GameObject[] shroomFloor = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+    
+        foreach(GameObject floor in shroomFloor)
+        {
+            if(floor.CompareTag("MushroomFloor"))
+            {
+                if (canSee)
+                    floor.SetActive(true);
+                else
+                    floor.SetActive(false);
+            }
         }
     }
 }
