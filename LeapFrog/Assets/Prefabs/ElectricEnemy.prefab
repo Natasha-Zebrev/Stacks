@@ -184,3 +184,4 @@ MonoBehaviour:
   mainRenderer: {fileID: 8816745279446575597}
   sideToSideDistance: 10
   flippedSprite: 0
+  lungeDistance: 4

@@ -8,6 +8,7 @@ public class ElectricMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer mainRenderer;
     [SerializeField] private int sideToSideDistance;
     [SerializeField] private bool flippedSprite;
+    [SerializeField] private float lungeDistance;
     private float startingX;
     private bool movingLeft = true;
     private float minX;
@@ -46,14 +47,14 @@ public class ElectricMovement : MonoBehaviour
             if(movingLeft && enemyPos.x >= minX && waitTrigger == false)
             {
                 faceCorrectDirection(movingLeft);
-                Vector3 lunge = new Vector3(-4f,0,0);
+                Vector3 lunge = new Vector3(-lungeDistance,0,0);
                 electricTransform.position += lunge;
                 waitTrigger = true;
             }
             else if(!movingLeft && enemyPos.x <= maxX && waitTrigger == false)
             {
                 faceCorrectDirection(movingLeft);
-                Vector3 lunge = new Vector3(4f,0,0);
+                Vector3 lunge = new Vector3(lungeDistance,0,0);
                 electricTransform.position += lunge;
                 waitTrigger = true;
             }
