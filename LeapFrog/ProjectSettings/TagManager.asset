@@ -21,6 +21,7 @@ TagManager:
   - ElectricAlly
   - Elevator
   - MushroomAlly
+  - SwitcherooAlly
   layers:
   - Default
   - TransparentFX

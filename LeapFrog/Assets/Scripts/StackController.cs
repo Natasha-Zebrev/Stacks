@@ -84,6 +84,13 @@ public class StackController : MonoBehaviour
                 else if (!containsAlly("RockAlly"))
                     player.canJump = true;
                 break;
+
+            case "SwitcherooAlly":
+                if (adding)
+                    player.controlsReversed = true;
+                else if (!containsAlly("SwitcherooAlly"))
+                    player.controlsReversed = false;
+                break;
         }
     }
 

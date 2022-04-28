@@ -11,17 +11,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject benzo;
     [SerializeField] private Rigidbody2D mainRigidBody;
     [SerializeField] public Transform playerTransform;
-    private SpriteRenderer mainSpriteRenderer;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
-    bool isGrounded = true;
     [SerializeField] private Animator anim;
     [SerializeField] private GameUI gameUI;
     [SerializeField] private int maxHealth;
+
+    private SpriteRenderer mainSpriteRenderer;
+    bool isGrounded = true;
     int currentNumJumps = 1;
     public int totalNumJumps = 1;
     public bool touchLava = false;
     public bool canJump = true;
+    public bool controlsReversed = false;
     
     public List<GameObject> stack
     {
@@ -47,17 +49,36 @@ public class PlayerController : MonoBehaviour
         //Move the player left
         if(Input.GetKey(KeyCode.A))
         {
-            mainRigidBody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
-            mainSpriteRenderer.flipX = true;
+            if(controlsReversed)
+            {
+                mainRigidBody.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0));
+                mainSpriteRenderer.flipX = false;
+            } else
+            {
+                mainRigidBody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
+                mainSpriteRenderer.flipX = true;
+            }
+
             anim.enabled = true && isGrounded;
+            flipAllies();
         }
 
         //Move the player right
         if(Input.GetKey(KeyCode.D))
         {
-            mainRigidBody.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0));
-            mainSpriteRenderer.flipX = false;
+            if (controlsReversed)
+            {
+                mainRigidBody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
+                mainSpriteRenderer.flipX = true;
+            }
+            else
+            {
+                mainRigidBody.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0));
+                mainSpriteRenderer.flipX = false;
+            }
+
             anim.enabled = true && isGrounded;
+            flipAllies();
         }
 
         //Jump
@@ -76,8 +97,6 @@ public class PlayerController : MonoBehaviour
             anim.enabled = false;
         }
 
-        //Flip allies
-        flipAllies();
     }
 
     void Awake()
