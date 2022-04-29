@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameUI gameUI;
     [SerializeField] private AudioSource acquireAlly;
     [SerializeField] private AudioSource loseAlly;
+    [SerializeField] private AudioSource sizzle;
     [SerializeField] private int maxHealth;
 
     private SpriteRenderer mainSpriteRenderer;
@@ -158,6 +159,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Health > 0)
             {
+                    sizzle.Play();
                     Health--;
                     Debug.Log(Health);
              }
