@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainPlat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1391397525541774109, guid: 71d8d623ea652e347b04963895e0f097, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 3905983781557376221, guid: 71d8d623ea652e347b04963895e0f097, type: 3}
       propertyPath: m_SortingLayer
       value: 2
