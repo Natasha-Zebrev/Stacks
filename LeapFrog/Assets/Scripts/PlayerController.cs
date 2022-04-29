@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] private Animator anim;
     [SerializeField] private GameUI gameUI;
+    [SerializeField] private AudioSource acquireAlly;
+    [SerializeField] private AudioSource loseAlly;
     [SerializeField] private int maxHealth;
 
     private SpriteRenderer mainSpriteRenderer;
@@ -217,12 +219,14 @@ public class PlayerController : MonoBehaviour
     {
         stackController.addAlly(ally);
         gameUI.showStackHealth((float)(stack.Count - 1) / (float)gameUI.targetSize);
+        acquireAlly.Play();
     }
 
     public void removeAlly(int i)
     {
         stackController.removeAlly(i);
         gameUI.showStackHealth((float)(stack.Count - 1) / (float)gameUI.targetSize);
+        loseAlly.Play();
     }
 
     //Flips an ally/allies to whichever direction the player is facing
