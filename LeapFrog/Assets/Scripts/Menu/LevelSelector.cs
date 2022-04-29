@@ -29,6 +29,8 @@ public class LevelSelector : MonoBehaviour
         levelButtons[6].GetComponent<Button>().onClick.AddListener(() => LoadingScreen.LoadScene("Level7"));
         levelButtons[7].GetComponent<Button>().onClick.AddListener(() => LoadingScreen.LoadScene("Level8"));
         levelButtons[8].GetComponent<Button>().onClick.AddListener(() => LoadingScreen.LoadScene("Level9"));
+        levelButtons[9].GetComponent<Button>().onClick.AddListener(() => LoadingScreen.LoadScene("Level10"));
+        levelButtons[10].GetComponent<Button>().onClick.AddListener(() => LoadingScreen.LoadScene("Level11"));
     }
     
     private void enableOnlyFirst()
