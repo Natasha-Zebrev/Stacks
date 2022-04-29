@@ -2147,7 +2147,7 @@ GameObject:
   - component: {fileID: 838873036}
   m_Layer: 0
   m_Name: LeftBounds
-  m_TagString: Floor
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2256,7 +2256,7 @@ GameObject:
   - component: {fileID: 894921076}
   m_Layer: 0
   m_Name: RightBounds
-  m_TagString: Floor
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
