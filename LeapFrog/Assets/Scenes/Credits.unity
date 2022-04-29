@@ -981,7 +981,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Acquire \t\t\tWobbleboxx\nLose\t\t\t\nEasy Joy\t\t\tArthur\nDark Fallout\t\tremaxim\nGrip
-    of Nature\t\tSindwiller\nSewerstrubstill\t \tTozan"
+    of Nature\t\tSindwiller\nSewerstrubstill\t \tTozan\nSizzling\t\t\tSpanac"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54a0a069042baa64d902fcd2f8ef612e, type: 2}
   m_sharedMaterial: {fileID: -486487099769846963, guid: 54a0a069042baa64d902fcd2f8ef612e, type: 2}
