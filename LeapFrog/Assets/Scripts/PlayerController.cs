@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -92,6 +93,10 @@ public class PlayerController : MonoBehaviour
             currentNumJumps--;
             anim.enabled = false;
             playerOnPlatform(false, null);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("MainMenu");
         }
 
         //Pause the walking animation if the player is standing still or jumping
