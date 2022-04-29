@@ -30,7 +30,14 @@ public class WinFailUI : MonoBehaviour
     void Awake() {
         String sceneName = SceneManager.GetActiveScene().name + "";
         int levelNumber = Int32.Parse(sceneName.Remove(0,5));
-        levContinue.onClick.AddListener(() => SceneManager.LoadScene("Level" + (levelNumber + 1)));
+        if(levelNumber + 1 != 12)
+        {
+            levContinue.onClick.AddListener(() => SceneManager.LoadScene("Level" + (levelNumber + 1)));
+        }
+        else
+        {
+            levContinue.onClick.AddListener(() => SceneManager.LoadScene("LevelSelect"));
+        }
         winRestart.onClick.AddListener(() => SceneManager.LoadScene(sceneName));
         winQuit.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
         failRestart.onClick.AddListener(() => SceneManager.LoadScene(sceneName));
