@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
         mainTransform = mainCamera.transform;
         currentPos = mainTransform.position;
         currentPos.y = Math.Max(minY, target.position.y);
-        mainCamera.orthographicSize = 9;
+        mainCamera.orthographicSize = 11;
     }
 
     // Update is called once per frame
