@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer mainSpriteRenderer;
     bool isGrounded = true;
-    int currentNumJumps = 1;
+    public int currentNumJumps = 1;
     public int totalNumJumps = 1;
     public bool touchLava = false;
     public bool canJump = true;
@@ -157,14 +157,12 @@ public class PlayerController : MonoBehaviour
         float xPosDif = Math.Abs(playerTransform.position.x - collision.gameObject.transform.position.x);
         bool onObstacle = aboveThing && xPosDif < (collision.collider.bounds.size.x + collision.otherCollider.bounds.size.x) / 2;
 
-        Debug.Log("above: " + aboveThing + "\nxPosDif: " + xPosDif + "\nonObs: " + onObstacle + "\nBounds: " + (collision.collider.bounds.size.x + collision.otherCollider.bounds.size.x) / 2);
-
         if ((collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("GhostWall") || collision.gameObject.CompareTag("Enemy") ||
             collision.gameObject.CompareTag("Elevator") || (collision.gameObject.CompareTag("LavaWall") && stackController.containsAlly("DemonAlly")) || collision.gameObject.CompareTag("MushroomFloor") 
             || collision.gameObject.CompareTag("WinPlat")) && onObstacle)
         {
-                isGrounded = true;
-                currentNumJumps = totalNumJumps;
+            isGrounded = true;
+            currentNumJumps = totalNumJumps;
         }
         else if (collision.gameObject.CompareTag("LavaWall") && !touchLava)
         {
