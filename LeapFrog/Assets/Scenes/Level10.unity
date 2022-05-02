@@ -2032,7 +2032,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -876113707728100093, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: sideToSideDistance
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 118810738125033534, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_Name
@@ -2044,7 +2044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 85.86
+      value: 82.55
       objectReference: {fileID: 0}
     - target: {fileID: 5563738122432933712, guid: 4c7f236e4b90acc49806c35d5a077c5d, type: 3}
       propertyPath: m_LocalPosition.y
