@@ -12,7 +12,7 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private Image healthBar;
     [SerializeField] private Image stackHealth;
-    [SerializeField] private TMP_Text gameTime;
+    [SerializeField] public TMP_Text gameTime;
     [SerializeField] private TMP_Text stackSize;
     [SerializeField] private int allyCount;
     [SerializeField] public int targetSize;

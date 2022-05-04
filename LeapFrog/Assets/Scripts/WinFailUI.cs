@@ -12,12 +12,14 @@ public class WinFailUI : MonoBehaviour
     [SerializeField] private GameObject nextLevelGraphicHolder;
     [SerializeField] private Button nextLevelGraphicButton;
     [SerializeField] private GameObject winMenu;
+    [SerializeField] private TMP_Text winTimeText;
     [SerializeField] private Button levContinue;
     [SerializeField] private Button winRestart;
     [SerializeField] private Button winQuit;
 
     //These fields are all related to the failMenu
     [SerializeField] private GameObject failMenu;
+    [SerializeField] private TMP_Text failTimeText;
     [SerializeField] private Button failRestart;
     [SerializeField] private Button failQuit;
 
@@ -58,6 +60,7 @@ public class WinFailUI : MonoBehaviour
     //Used to activate the win menu
     public void win() {
         freezeTime();
+        winTimeText.text = "Time: " + GameUI.instance.gameTime.text;
         winMenu.SetActive(true);
         nextLevelGraphicHolder.SetActive(false);
     }
@@ -65,6 +68,7 @@ public class WinFailUI : MonoBehaviour
     //Used to activate the fail menu
     public void fail() {
         freezeTime();
+        failTimeText.text = "Time: " + GameUI.instance.gameTime.text;
         failMenu.SetActive(true);
     }
 
