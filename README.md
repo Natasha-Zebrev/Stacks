@@ -2,11 +2,11 @@
 
 Welcome to Benza's Adventures, a game made for the UMM's Computer Game Development course by Kyle Day, Richard Lussier, Erik Rauer, and Natasha Zebrev!
 
-##Attributions
+## Attributions
 
 For our game, we gathered sprites and sounds from various different sources with different licenses. We will now list them below:
 
-###Art
+### Art
 [Benza](https://www.megupets.com/assets/benza/) - Megupets
 
 [Slime](https://opengameart.org/content/jiggling-slime) [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) - Richard Lewis (AKA [simulatoralive](https://simulatoralive.itch.io/bigblockengine)) 
@@ -25,7 +25,7 @@ For our game, we gathered sprites and sounds from various different sources with
 
 [Pink Monster](https://opengameart.org/content/pink-monster-animation) - ArtsyAngelee
 
-###Sounds
+### Music and Sounds
 
 [Acquire and Lose Ally](https://opengameart.org/content/level-up-power-up-coin-get-13-sounds) - Wobbleboxx
 
@@ -34,3 +34,7 @@ For our game, we gathered sprites and sounds from various different sources with
 [Easy Joy](https://opengameart.org/content/easy-joy) [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) [GPL 3.0](https://www.gnu.org/licenses/old-licenses/gpl-3.0.html) [GPL 2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) - Arthur
 
 [Dark Fallout](https://opengameart.org/content/dark-fallout) [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) - remaxim
+
+[Grip of Nature](https://opengameart.org/content/grip-nature) - Sindwiller
+
+[Sewerstrubstill](https://opengameart.org/content/sewerstrubstill) - Tozan
