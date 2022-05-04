@@ -9,6 +9,8 @@ using System;
 public class WinFailUI : MonoBehaviour
 {   
     //These fields are all related to the winMenu
+    [SerializeField] private GameObject nextLevelGraphicHolder;
+    [SerializeField] private Button nextLevelGraphicButton;
     [SerializeField] private GameObject winMenu;
     [SerializeField] private Button levContinue;
     [SerializeField] private Button winRestart;
@@ -29,7 +31,16 @@ public class WinFailUI : MonoBehaviour
     }
     void Awake() {
         String sceneName = SceneManager.GetActiveScene().name + "";
-        levContinue.onClick.AddListener(() => SceneManager.LoadScene("LevelSelect"));
+        int levelNumber = Int32.Parse(sceneName.Remove(0,5));
+        if(levelNumber + 1 != 12)
+        {   
+            levContinue.onClick.AddListener(() => nextLevelGraphicHolder.SetActive(true));
+            nextLevelGraphicButton.onClick.AddListener(() => SceneManager.LoadScene("Level" + (levelNumber + 1)));
+        }
+        else
+        {
+            levContinue.onClick.AddListener(() => SceneManager.LoadScene("LevelSelect"));
+        }
         winRestart.onClick.AddListener(() => SceneManager.LoadScene(sceneName));
         winQuit.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
         failRestart.onClick.AddListener(() => SceneManager.LoadScene(sceneName));
@@ -41,12 +52,14 @@ public class WinFailUI : MonoBehaviour
     public void disable() {
         winMenu.SetActive(false);
         failMenu.SetActive(false);
+        nextLevelGraphicHolder.SetActive(false);
     }
 
     //Used to activate the win menu
     public void win() {
         freezeTime();
         winMenu.SetActive(true);
+        nextLevelGraphicHolder.SetActive(false);
     }
 
     //Used to activate the fail menu

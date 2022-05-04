@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2222268574199962683}
   - component: {fileID: 4034749330632331865}
   - component: {fileID: 3148520756699370322}
+  - component: {fileID: 7924270226790480194}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -145,3 +146,18 @@ MonoBehaviour:
   enemyTransform: {fileID: 8183183393138163747}
   enemyCollider: {fileID: 2222268574199962683}
   allyPrefab: {fileID: 3644003389324724572, guid: b6f10b5c8c95608428b893961bff9151, type: 3}
+--- !u!114 &7924270226790480194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8670146962391928018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf8fa50f7660d34ba051c506ac55bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainTransform: {fileID: 8183183393138163747}
+  moveSpeed: 0.5
+  upAndDownDistance: 0.25

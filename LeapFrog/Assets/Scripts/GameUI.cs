@@ -23,8 +23,8 @@ public class GameUI : MonoBehaviour
      void Start()
     {
         //This condition protects against the game trying to divide by zero or ending with just the player in the stack.
-        if(targetSize < 2) {
-            targetSize = 2;
+        if(targetSize < 1) {
+            targetSize = 1;
         }
         instance = this;
     }

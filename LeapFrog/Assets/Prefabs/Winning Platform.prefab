@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4217339361797793406}
   m_Layer: 0
   m_Name: Winning Platform
-  m_TagString: Untagged
+  m_TagString: WinPlat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private BoxCollider2D enemyCollider;
     [SerializeField] private GameObject allyPrefab;
-    private float squishLeeway = 1.4f;
+    private float squishLeeway = 0.75f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
         if (collider.CompareTag("Player")) 
         {
             if ((enemyTransform.position.y < collider.transform.position.y) && 
-                Math.Abs(enemyTransform.position.x - collider.transform.position.x) < (enemyCollider.bounds.size.x * squishLeeway * 0.5))
+                Math.Abs(enemyTransform.position.x - collider.transform.position.x) < (enemyCollider.bounds.size.x * squishLeeway))
             {
                 PlayerController player = collider.GetComponentInParent<PlayerController>();
                 player.addAlly(allyPrefab);
@@ -44,29 +44,29 @@ public class EnemyController : MonoBehaviour
                 if (PlayerController.instance.Health > 0)
                 {
                     List<GameObject> stack = PlayerController.instance.stack;
-                    if(stack.Count == 1)
+                    int stackCount = stack.Count;
+                    if(stackCount == 1)
                     {
                         PlayerController.instance.Health--;
                         Debug.Log(PlayerController.instance.Health);
                     }
-                    else if(stack.Count == 2)
+                    else if(stackCount == 2)
                     {
 
-                        PlayerController.instance.removeAlly(stack.Count-1);
+                        PlayerController.instance.removeAlly(stackCount - 1);
                     }
-                    else if(stack.Count > 2 && stack.Count <= 14)
+                    else if(stackCount > 2 && stackCount <= 14)
                     {
-                        int numToRemove = (int)Mathf.Floor(Mathf.Sqrt(stack.Count - 2));
-                        int stackCount = stack.Count;
+                        int numToRemove = (int)Mathf.Floor(Mathf.Sqrt(stackCount - 2));
                         for(int i = stackCount - 1; i > stackCount - 1 - numToRemove; i--)
                         {
                             PlayerController.instance.removeAlly(i);
                         }
                     }
-                    else if(stack.Count > 14)
+                    else if(stackCount > 14)
                     {
                         int removeMax = 5;
-                        for (int i = stack.Count - 1; i > stack.Count - 1 - removeMax; i--)
+                        for (int i = stackCount - 1; i > stackCount - 1 - removeMax; i--)
                         {
                             PlayerController.instance.removeAlly(i);
                         }

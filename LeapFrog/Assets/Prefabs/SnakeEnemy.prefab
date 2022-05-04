@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7636865122087123503}
   - component: {fileID: -3322836395553394050}
   - component: {fileID: -7430471741554385815}
-  - component: {fileID: 8751937832165714607}
   m_Layer: 0
   m_Name: SnakeEnemy
   m_TagString: Enemy
@@ -101,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0056473315, y: -0.29042304}
+  m_Offset: {x: -0.019876271, y: -0.28330857}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7905806, y: 0.33962262}
+  m_Size: {x: 0.81903845, y: 0.35385156}
   m_EdgeRadius: 0
 --- !u!95 &5479086585612633075
 Animator:
@@ -149,6 +148,7 @@ MonoBehaviour:
   mainRenderer: {fileID: 3142710234769847014}
   moveSpeed: 300
   sideToSideDistance: 3
+  flippedSprite: 0
 --- !u!50 &-3322836395553394050
 Rigidbody2D:
   serializedVersion: 4
@@ -185,29 +185,3 @@ MonoBehaviour:
   enemyTransform: {fileID: 2539595766310989099}
   enemyCollider: {fileID: 9103888362772068532}
   allyPrefab: {fileID: 1383091014257323982, guid: 6c20c3169ddf8c0489f96ade4984f6bf, type: 3}
---- !u!61 &8751937832165714607
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724893462561945760}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.25454685, y: 0.15466145}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.96}
-    newSize: {x: 0.96, y: 0.96}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2575794, y: 0.5540138}
-  m_EdgeRadius: 0
