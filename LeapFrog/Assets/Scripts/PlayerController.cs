@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Move the player left
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             if(controlsReversed)
             {
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Move the player right
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             if (controlsReversed)
             {
@@ -86,7 +86,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump
-        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && currentNumJumps != 0 && canJump)
+        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        && currentNumJumps != 0 && canJump)
         {
             mainRigidBody.AddForce(new Vector2(0 , jumpHeight));
             isGrounded = false;
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
             playerOnPlatform(false, null);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.M)) {
             SceneManager.LoadScene("MainMenu");
         }
 
