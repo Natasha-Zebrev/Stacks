@@ -38,6 +38,8 @@ public class StackController : MonoBehaviour
     public void removeAlly(int i)
     {
         GameObject removedAlly = stack[i];
+        if (removedAlly.tag.Equals("SlimeAlly"))
+            PlayerController.instance.currentNumJumps--;
         Vector3 removeHeight = new Vector3(0, removedAlly.GetComponent<BoxCollider2D>().bounds.size.y * 1.5f, 0);
         Destroy(stack[i]);
         stack.RemoveAt(i);

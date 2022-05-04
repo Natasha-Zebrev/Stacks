@@ -185,7 +185,7 @@ TextMesh:
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 1694498815
+    rgba: 3871655108
 --- !u!23 &21679209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5985257846989386826, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
       propertyPath: minY
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5985257846989386826, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
       propertyPath: zoomSpeed
@@ -1228,7 +1228,7 @@ TextMesh:
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 1694498815
+    rgba: 3871655108
 --- !u!23 &674934702
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1849,7 +1849,7 @@ TextMesh:
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 1694498815
+    rgba: 3871655108
 --- !u!23 &1084196004
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2525,7 +2525,7 @@ TextMesh:
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 1694498815
+    rgba: 3871655108
 --- !u!23 &1519818551
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2778,7 +2778,7 @@ TextMesh:
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 1694498815
+    rgba: 3871655108
 --- !u!23 &1746024276
 MeshRenderer:
   m_ObjectHideFlags: 0

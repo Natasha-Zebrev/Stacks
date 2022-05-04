@@ -2411,7 +2411,7 @@ PrefabInstance:
       objectReference: {fileID: 1745983733}
     - target: {fileID: 5985257846989386826, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
       propertyPath: minY
-      value: 13.5
+      value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 5985257846989386826, guid: 0b2fb146b5490ef4ab7c8c9738b6df58, type: 3}
       propertyPath: mainCamera
